@@ -42,6 +42,11 @@ function getMeme() {
 //   return
 // }
 
+function setImg(imgId) {
+  gMeme.selectedImgId = imgId
+  console.log('gMeme.selectedImgId:', gMeme.selectedImgId)
+}
+
 function setLineTxt(txt) {
   gMeme.lines[0].txt = txt
 }

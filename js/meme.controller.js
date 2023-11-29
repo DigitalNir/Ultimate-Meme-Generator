@@ -29,9 +29,10 @@ function renderCanvas() {
 // Let's use the image natural width and height
 function drawImg(meme) {
   const imgId = meme.selectedImgId
-  //   console.log('imgId:', imgId)
-
-  const imgUrl = getImgById(imgId).imgUrl
+  console.log('imgId from drawImg:', imgId)
+  const image = getImgById(imgId)
+  console.log('image:', image)
+  const imgUrl = image.imgUrl
 
   //   const image = getImgById(imgId)
 
