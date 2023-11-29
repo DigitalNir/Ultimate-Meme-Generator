@@ -11,7 +11,7 @@ function makeId(length = 6) {
   return id
 }
 
-function makeLorem(wordCount = 100) {
+function makeLorem(wordCount = 1) {
   const words = [
     'The sky',
     'above',

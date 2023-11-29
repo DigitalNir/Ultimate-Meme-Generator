@@ -1,4 +1,6 @@
 'use strict'
+const DEFAULT_FONT = 'Impact-Regular'
+
 let gElCanvas
 let gCtx
 
@@ -9,8 +11,11 @@ function onInit() {
 }
 
 function renderMeme() {
+  const meme = getMeme()
+
+  //   console.log('meme:', meme)
   renderCanvas()
-  drawImg()
+  drawImg(meme)
 }
 
 function renderCanvas() {
@@ -20,28 +25,44 @@ function renderCanvas() {
   gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-function drawText(text, x, y) {
-  gCtx.lineWidth = 2
-  gCtx.strokeStyle = 'brown'
-  gCtx.fillStyle = 'white'
-  gCtx.font = '40px Arial'
-  gCtx.textAlign = 'center'
-  gCtx.textBaseline = 'middle'
-  gCtx.fillText(text, x, y)
-  gCtx.strokeText(text, x, y)
-}
-
 // Let's use the image natural width and height
-function drawImg() {
+function drawImg(meme) {
+  const imgId = meme.selectedImgId
+  //   console.log('imgId:', imgId)
+
+  const imgUrl = getImgById(imgId).imgUrl
+  const image = getImgById(imgId)
+  //   console.log('image:', image)
+  //   console.log('image.imgUrl:', image.imgUrl)
   const elImg = new Image()
-  // elImg.src = 'img/square.jpg'
-  // elImg.src = 'img/wide.jpg'
-  elImg.src = 'img/meme-imgs (square)/1.jpg'
+
+  elImg.src = imgUrl
+
   elImg.onload = () => {
     gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
     // Draw the text after the image has been loaded and drawn
-    drawText('hello', 100, 100)
+
+    const txt = meme.lines[0].txt
+    const font = DEFAULT_FONT
+    const fillColor = meme.lines[0].fillColor
+    const strokeColor = meme.lines[0].fillColor
+    const size = meme.lines[0].size
+
+    const centerX = gElCanvas.width / 2
+    const centerY = gElCanvas.height / 2
+    drawText(txt, font, size, fillColor, strokeColor, centerX, centerY)
   }
+}
+
+function drawText(txt, font, size, fillColor, strokeColor, x, y) {
+  gCtx.lineWidth = 2
+  gCtx.fillStyle = fillColor
+  gCtx.strokeStyle = strokeColor
+  gCtx.font = `${size}px ${font}`
+  gCtx.textAlign = 'center'
+  gCtx.textBaseline = 'middle'
+  gCtx.fillText(txt, x, y)
+  gCtx.strokeText(txt, x, y)
 }
 
 // Lets cover a fixed-width canvas using an img
