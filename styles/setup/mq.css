@@ -1,0 +1,6 @@
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+  .section-gallery {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
