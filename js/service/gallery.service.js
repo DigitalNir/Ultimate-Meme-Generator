@@ -6,6 +6,12 @@ const IMG_PATH = 'img/meme-imgs (square)'
 let gImgId = 0
 let gImgs = null
 
+createImgs()
+
+function getImages() {
+  return gImgs
+}
+
 function getImgById(imgId) {
   return gImgs.find((img) => img.imgId === imgId)
 }

@@ -5,7 +5,7 @@ const DEFAULT_FONT = 'Impact-Regular'
 let gElCanvas
 let gCtx
 
-function onInit() {
+function onInitMeme() {
   gElCanvas = document.querySelector('canvas')
   gCtx = gElCanvas.getContext('2d')
   renderMeme()
