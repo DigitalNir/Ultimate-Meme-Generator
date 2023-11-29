@@ -6,7 +6,7 @@ let gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
 // Define the line data for each meme
 const line1 = {
   txt: 'First meme text',
-  size: 40,
+  size: 60,
   fillColor: 'red',
   strokeColor: 'yellow',
 }
@@ -41,6 +41,10 @@ function getMeme() {
 //   // return gMeme.find((meme) => meme.id === memeId)
 //   return
 // }
+
+function setLineTxt(txt) {
+  gMeme.lines[0].txt = txt
+}
 
 // Private functions
 function _createMeme(

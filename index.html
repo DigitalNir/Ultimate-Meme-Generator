@@ -15,10 +15,17 @@
           <li><a href="#">About</a></li>
         </ul>
       </nav>
-      <!-- <img src="/img/meme-imgs (square)/1.jpg" alt="" /> -->
     </header>
     <section class="section-gallery"></section>
     <section class="section-editor">
+      <!-- <label for="meme-text"></label> -->
+      <input
+        class="meme-text"
+        type="text"
+        name="meme-text"
+        id="meme-text"
+        oninput="onLineTxt(event)"
+      />
       <canvas width="450" height="450"> </canvas>
     </section>
     <script src="js/service/utils.service.js"></script>

@@ -1,5 +1,6 @@
 'use strict'
 const DEFAULT_FONT = 'Impact-Regular'
+// const DEFAULT_FONT = 'Arial'
 
 let gElCanvas
 let gCtx
@@ -12,8 +13,8 @@ function onInit() {
 
 function renderMeme() {
   const meme = getMeme()
+  console.log('meme:', meme)
 
-  //   console.log('meme:', meme)
   renderCanvas()
   drawImg(meme)
 }
@@ -31,9 +32,12 @@ function drawImg(meme) {
   //   console.log('imgId:', imgId)
 
   const imgUrl = getImgById(imgId).imgUrl
-  const image = getImgById(imgId)
+
+  //   const image = getImgById(imgId)
+
   //   console.log('image:', image)
   //   console.log('image.imgUrl:', image.imgUrl)
+
   const elImg = new Image()
 
   elImg.src = imgUrl
@@ -63,6 +67,7 @@ function drawText(txt, font, size, fillColor, strokeColor, x, y) {
   gCtx.textBaseline = 'middle'
   gCtx.fillText(txt, x, y)
   gCtx.strokeText(txt, x, y)
+  //   console.log(`Drawing text with font: ${gCtx.font}`)
 }
 
 // Lets cover a fixed-width canvas using an img
@@ -81,4 +86,9 @@ function onClearCanvas() {
 
 function onSelectImg(elImg) {
   coverCanvasWithImg(elImg)
+}
+
+function onLineTxt(ev) {
+  setLineTxt(ev.target.value)
+  renderMeme()
 }
