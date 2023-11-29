@@ -6,8 +6,7 @@
     <title>Ultimate Meme Generator</title>
     <link rel="stylesheet" href="styles/style.css" />
   </head>
-<<<<<<< HEAD
-  <body class="main-layout">
+  <body class="main-layout" onload="onInit()">
     <header class="main-header">
       <div class="logo">MeMeFy</div>
       <nav class="main-nav">
@@ -16,18 +15,16 @@
           <li><a href="#">About</a></li>
         </ul>
       </nav>
+      <!-- <img src="/img/meme-imgs (square)/1.jpg" alt="" /> -->
     </header>
     <section class="section-gallery"></section>
-    <section class="section-editor"></section>
+    <section class="section-editor">
+      <canvas width="450" height="450"> </canvas>
+    </section>
+    <script src="js/service/utils.service.js"></script>
     <script src="js/service/gallery.service.js"></script>
     <script src="js/service/meme.service.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
-=======
-  <body>
-    <!--  -->
-    <script src="js/service/service.js"></script>
-    <script src="js/controller.js"></script>
->>>>>>> 2232ee82253b3816c2a5306aa8f126ac227ac83a
   </body>
 </html>
