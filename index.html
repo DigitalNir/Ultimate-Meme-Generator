@@ -6,8 +6,21 @@
     <title>Ultimate Meme Generator</title>
     <link rel="stylesheet" href="styles/style.css" />
   </head>
-  <body>
-    <script src="js/service/service.js"></script>
-    <script src="js/controller.js"></script>
+  <body class="main-layout">
+    <header class="main-header">
+      <div class="logo">MeMeFy</div>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="section-gallery"></section>
+    <section class="section-editor"></section>
+    <script src="js/service/gallery.service.js"></script>
+    <script src="js/service/meme.service.js"></script>
+    <script src="js/gallery.controller.js"></script>
+    <script src="js/meme.controller.js"></script>
   </body>
 </html>
