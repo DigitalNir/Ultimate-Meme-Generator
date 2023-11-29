@@ -1,0 +1,15 @@
+:root {
+  /* color */
+  --clrPrimary1: #b4ad9e;
+  --clrPrimary2: #f0f0f0;
+  --clrPrimaryBase: #626262;
+  --clrPrimary-1: #000;
+
+  /* layout  */
+  --card-layout-margin: 80px;
+  --card-layout-margin-center: 60px;
+
+  --l: 1060px;
+  --m: 800px;
+  --s: 600px;
+}
