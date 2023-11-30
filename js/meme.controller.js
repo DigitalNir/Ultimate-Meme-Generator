@@ -16,7 +16,7 @@ function renderMeme() {
   console.log('meme:', meme)
 
   renderCanvas()
-  drawImg(meme)
+  drawMeme(meme)
 }
 
 function renderCanvas() {
@@ -27,9 +27,9 @@ function renderCanvas() {
 }
 
 // Let's use the image natural width and height
-function drawImg(meme) {
+function drawMeme(meme) {
   const imgId = meme.selectedImgId
-  console.log('imgId from drawImg:', imgId)
+  //   console.log('imgId from drawMeme:', imgId)
   const image = getImgById(imgId)
   console.log('image:', image)
   const imgUrl = image.imgUrl
@@ -50,7 +50,7 @@ function drawImg(meme) {
     const txt = meme.lines[0].txt
     const font = DEFAULT_FONT
     const fillColor = meme.lines[0].fillColor
-    const strokeColor = meme.lines[0].fillColor
+    const strokeColor = meme.lines[0].strokeColor
     const size = meme.lines[0].size
 
     const centerX = gElCanvas.width / 2
@@ -91,5 +91,17 @@ function onSelectImg(elImg) {
 
 function onLineTxt(ev) {
   setLineTxt(ev.target.value)
+  renderMeme()
+}
+
+function onChangeColor(ev, mode) {
+  // Trigger the click event of the hidden color input
+  document.getElementById('color-picker-fill').click()
+  setColor(ev.target.value, mode)
+  renderMeme()
+}
+
+function onChangeFontSize(mode) {
+  setFontSize(mode)
   renderMeme()
 }

@@ -79,3 +79,11 @@ function loadFromStorage(key) {
 function capitalize(txt) {
   return txt.charAt(0).toUpperCase() + txt.substring(1)
 }
+
+function downloadCanvas(elLink) {
+  const dataUrl = gElCanvas.toDataURL()
+
+  elLink.href = dataUrl
+  // Set a name for the downloaded file
+  elLink.download = 'my-img'
+}

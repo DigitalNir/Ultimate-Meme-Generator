@@ -4,12 +4,6 @@ function onInitGallery() {
   renderGallery()
 }
 
-function onImgSelect(ev) {
-  const imgId = +ev.target.dataset.imgId
-  setImg(imgId)
-  renderMeme()
-}
-
 function renderGallery() {
   const images = getImages()
   const elGallery = document.querySelector('.section-gallery')
@@ -20,4 +14,18 @@ function renderGallery() {
     elImg.dataset.imgId = image.imgId
     elGallery.appendChild(elImg)
   })
+}
+
+function onImgSelect(ev) {
+  if (ev.target.tagName !== 'IMG') return
+
+  const imgId = +ev.target.dataset.imgId
+  setImg(imgId)
+  renderMeme()
+  document.querySelector('.section-editor').classList.remove('hidden')
+  document.querySelector('.section-gallery').classList.add('hidden')
+}
+
+function onShowGallery() {
+  document.querySelector('.section-gallery').classList.remove('hidden')
 }

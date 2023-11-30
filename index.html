@@ -10,23 +10,75 @@
     <header class="main-header flex space-between align-center full">
       <img class="img-logo" src="img/logo.png" alt="Memfy logo" />
       <nav class="main-nav">
-        <ul class="main-nav-list">
-          <li><a href="#">Gallery</a></li>
+        <ul class="main-nav-list clean-list flex space-between align-center">
+          <li><a href="#" onclick="onShowGallery()">Gallery</a></li>
+
+          <li><a href="#">Memes</a></li>
           <li><a href="#">About</a></li>
         </ul>
       </nav>
     </header>
     <section class="section-gallery" onclick="onImgSelect(event)"></section>
-    <section class="section-editor">
+    <section class="section-editor flex hidden">
       <!-- <label for="meme-text"></label> -->
-      <input
-        class="meme-text"
-        type="text"
-        name="meme-text"
-        id="meme-text"
-        oninput="onLineTxt(event)"
-      />
-      <canvas width="450" height="450"> </canvas>
+      <div class="editor-meme"><canvas width="450" height="450"> </canvas></div>
+      <div class="editor-settings flex">
+        <input
+          class="meme-text"
+          type="text"
+          name="meme-text"
+          id="meme-text"
+          oninput="onLineTxt(event)"
+        />
+
+        <div class="font-settings-container">
+          <input
+            class="color-picker color-picker-fill"
+            type="color"
+            name="color-picker-fill"
+            id="color-picker-fill"
+            title="Set fill color"
+            oninput="onChangeColor(event, 1)"
+          />
+
+          <input
+            class="color-picker color-picker-stroke"
+            type="color"
+            name="color-picker-stroke"
+            id="color-picker-stroke"
+            title="Set stroke color"
+            oninput="onChangeColor(event, 2)"
+          />
+
+          <button
+            class="btn btn-font btn-increase-font"
+            onclick="onChangeFontSize(1)"
+          >
+            <img
+              class="icon-increase-font"
+              src="img/icons/increase font - icon.png"
+              alt="Increase Font"
+              title="Increase Font"
+            />
+          </button>
+
+          <button class="btn btn-decrease-font" onclick="onChangeFontSize(-1)">
+            <img
+              class="icon-decrease-font"
+              src="img/icons/decrease font - icon.png"
+              alt="Decrease Font"
+              title="Decrease Font"
+            />
+          </button>
+        </div>
+        <a
+          href="#"
+          class="button-style"
+          onclick="downloadCanvas(this)"
+          download="file-name"
+          >Download</a
+        >
+      </div>
     </section>
     <script src="js/service/utils.service.js"></script>
     <script src="js/service/gallery.service.js"></script>

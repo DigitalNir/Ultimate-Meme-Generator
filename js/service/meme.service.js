@@ -51,6 +51,15 @@ function setLineTxt(txt) {
   gMeme.lines[0].txt = txt
 }
 
+function setColor(color, mode) {
+  if (mode === 1) gMeme.lines[0].fillColor = color
+  else if (mode === 2) gMeme.lines[0].strokeColor = color
+}
+
+function setFontSize(mode) {
+  gMeme.lines[0].size += mode
+}
+
 // Private functions
 function _createMeme(
   selectedImgId,
@@ -73,18 +82,3 @@ function _createMeme(
 
   return meme
 }
-
-// function _createBooks() {
-//   gMeme = loadFromStorage(STORAGE_KEY) || []
-//   if (gMeme && gMeme.length) return
-
-//   // If no memes in storage - generate demo data
-//   // for (let i = 0; i < 12; i++) {
-//   gMeme.push(_createMeme())
-
-//   _saveBooksToStorage()
-// }
-
-// function _saveBooksToStorage() {
-//   saveToStorage(STORAGE_KEY, gBooks)
-// }
