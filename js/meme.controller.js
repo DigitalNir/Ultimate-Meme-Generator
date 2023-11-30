@@ -1,5 +1,6 @@
 'use strict'
 const DEFAULT_FONT = 'Impact-Regular'
+const PADDING = 10
 
 let gElCanvas
 let gCtx
@@ -96,36 +97,20 @@ function drawText(txt, font, size, fillColor, strokeColor, x, y) {
   }
 
   // Draw the text
-  gCtx.fillText(txt, x, y)
-  gCtx.strokeText(txt, x, y)
+  gCtx.fillText(txt, x + PADDING + 5, y)
+  gCtx.strokeText(txt, x + PADDING + 5, y)
 }
 
 function drawRect(x, y, width, fontSize) {
-  const padding = 10 // Padding of 10px on top bottom
   const rectHeight = fontSize
-  gCtx.lineWidth = 2
+  gCtx.lineWidth = 1
   gCtx.strokeStyle = 'blue'
 
   // Adjust rectangle position and size to surround the text with padding
   gCtx.strokeRect(
-    x,
-    y - fontSize + padding, // Adjust y to top of the text plus padding
-    width + padding,
-    rectHeight
-  )
-}
-
-function drawRect(x, y, width, fontSize) {
-  const padding = 10 // Padding of 10px on top bottom
-  const rectHeight = fontSize
-  gCtx.lineWidth = 2
-  gCtx.strokeStyle = 'blue'
-
-  // Adjust rectangle position and size to surround the text with padding
-  gCtx.strokeRect(
-    x,
-    y - fontSize + padding, // Adjust y to top of the text plus padding
-    width + padding,
+    x + PADDING,
+    y - fontSize + PADDING, // Adjust y to top of the text plus padding
+    width + PADDING,
     rectHeight
   )
 }
@@ -154,7 +139,8 @@ function onLineTxt(ev) {
 
 function onChangeColor(ev, mode) {
   // Trigger the click event of the hidden color input
-  document.getElementById('color-picker-fill').click()
+  const modeStr = mode === 1 ? 'fill' : 'stroke'
+  document.getElementById(`color-picker-${modeStr}`).click()
   setColor(ev.target.value, mode)
   renderMeme()
 }

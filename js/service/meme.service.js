@@ -5,11 +5,11 @@ let gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
 
 // Define the line data for each meme
 const line1 = {
-  txt: 'First meme text',
+  txt: 'Add Text Here',
   size: 60,
-  fillColor: 'red',
-  strokeColor: 'yellow',
-  pos: { x: 0, y: 100 }, // Example position
+  fillColor: 'white',
+  strokeColor: 'black',
+  pos: { x: 0, y: 100 },
 }
 
 // Repeat for line2 and line3...
@@ -37,11 +37,6 @@ gMeme = meme1
 function getMeme() {
   return gMeme
 }
-
-// function getMemeById(memeId) {
-//   // return gMeme.find((meme) => meme.id === memeId)
-//   return
-// }
 
 function getSelectedLineIdx() {
   return gMeme.selectedLineIdx
