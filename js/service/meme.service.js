@@ -1,11 +1,11 @@
 'use strict'
-
 let gMeme = null
 let gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
 
 // Define the line data for each meme
 const line1 = {
   txt: 'Add Text Here',
+  font: 'Impact-Regular',
   size: 60,
   fillColor: 'white',
   strokeColor: 'black',
@@ -93,7 +93,7 @@ function setColor(color, mode) {
 }
 
 function setFontSize(mode) {
-  gMeme.lines[gMeme.selectedLineIdx].size += mode
+  gMeme.lines[gMeme.selectedLineIdx].size += mode * 5
 }
 
 // Private functions
