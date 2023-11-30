@@ -160,6 +160,14 @@ function onSwitchLine() {
   renderMeme()
 }
 
+function onChangeAlignment(mode) {
+  const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+  const textWidth = gCtx.measureText(selectedLine.txt).width
+
+  setAlignment(mode, textWidth, gElCanvas.width)
+  renderMeme()
+}
+
 function onMouseClick(ev) {
   const { offsetX, offsetY } = ev
   const meme = getMeme()

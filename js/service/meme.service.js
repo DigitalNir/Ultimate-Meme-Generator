@@ -96,6 +96,23 @@ function setFontSize(mode) {
   gMeme.lines[gMeme.selectedLineIdx].size += mode * 5
 }
 
+function setAlignment(mode, textWidth, canvasWidth) {
+  const selectedLine = gMeme.lines[getSelectedLineIdx()]
+  console.log('gMeme.lines:', gMeme.lines)
+
+  switch (mode) {
+    case 1: // Left
+      selectedLine.pos.x = PADDING
+      break
+    case 2: // Center
+      selectedLine.pos.x = canvasWidth / 2 - textWidth / 2
+      break
+    case 3: // Right
+      selectedLine.pos.x = canvasWidth - textWidth - PADDING
+      break
+  }
+}
+
 // Private functions
 function _createMeme(selectedImgId, selectedLineIdx, lines) {
   const meme = {
