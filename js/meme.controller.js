@@ -143,6 +143,44 @@ function onAddLine() {
 }
 
 function onSwitchLine() {
-  setSelectLine()
+  setSelectLineOnSwitch()
   renderMeme()
+}
+
+function onMouseClick(ev) {
+  const { offsetX, offsetY } = ev
+  const meme = getMeme()
+
+  console.log('offsetX:', offsetX, '\noffsetY:', offsetY)
+
+  const clickedLine = meme.lines.find((line) => {
+    gCtx.font = `${line.size}px ${line.font || DEFAULT_FONT}`
+    const textWidth = gCtx.measureText(line.txt).width
+    const textHeight = line.size
+
+    // Define the text bounding box
+    const textBoundingBox = {
+      left: line.pos.x,
+      right: line.pos.x + textWidth,
+      top: line.pos.y - textHeight / 2,
+      bottom: line.pos.y + textHeight / 2,
+    }
+
+    // Check if click is inside the bounding box
+    return (
+      offsetX >= textBoundingBox.left &&
+      offsetX <= textBoundingBox.right &&
+      offsetY >= textBoundingBox.top &&
+      offsetY <= textBoundingBox.bottom
+    )
+  })
+
+  console.log('clickedLine:', clickedLine)
+
+  if (clickedLine) {
+    // Perform actions when a line is clicked
+    const lineIdx = meme.lines.findIndex((line) => line === clickedLine)
+    setSelectedLineIdx(lineIdx)
+    renderMeme()
+  }
 }

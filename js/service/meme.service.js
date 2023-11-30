@@ -47,7 +47,11 @@ function getSelectedLineIdx() {
   return gMeme.selectedLineIdx
 }
 
-function setSelectLine() {
+function setSelectedLineIdx(selectedLineIdx) {
+  gMeme.selectedLineIdx = selectedLineIdx
+}
+
+function setSelectLineOnSwitch() {
   if (gMeme.selectedLineIdx < gMeme.lines.length - 1) gMeme.selectedLineIdx++
   else gMeme.selectedLineIdx = 0
 }
