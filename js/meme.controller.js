@@ -161,7 +161,8 @@ function onSwitchLine() {
 }
 
 function onChangeAlignment(mode) {
-  const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+  const selectedLine = getSelectedLine()
+  gCtx.font = `${selectedLine.size}px ${selectedLine.font || DEFAULT_FONT}`
   const textWidth = gCtx.measureText(selectedLine.txt).width
 
   setAlignment(mode, textWidth, gElCanvas.width)

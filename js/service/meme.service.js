@@ -42,6 +42,9 @@ function getSelectedLineIdx() {
   return gMeme.selectedLineIdx
 }
 
+function getSelectedLine() {
+  return gMeme.lines[getSelectedLineIdx()]
+}
 function setSelectedLineIdx(selectedLineIdx) {
   gMeme.selectedLineIdx = selectedLineIdx
 }
@@ -62,8 +65,7 @@ function addNewLine() {
       size: lastLine.size,
       fillColor: lastLine.fillColor,
       strokeColor: lastLine.strokeColor,
-      pos: { x: lastLine.pos.x, y: lastLine.pos.y + bottomPadding }, // Example: position below the last line
-      pos: { x: lastLine.pos.x, y: lastLine.pos.y + bottomPadding }, // Example: position below the last line
+      pos: { x: lastLine.pos.x, y: lastLine.pos.y + bottomPadding },
     })
   } else {
     newLine = _createLine({
@@ -98,6 +100,8 @@ function setFontSize(mode) {
 
 function setAlignment(mode, textWidth, canvasWidth) {
   const selectedLine = gMeme.lines[getSelectedLineIdx()]
+  if (!selectedLine) return
+
   console.log('gMeme.lines:', gMeme.lines)
 
   switch (mode) {
@@ -108,6 +112,7 @@ function setAlignment(mode, textWidth, canvasWidth) {
       selectedLine.pos.x = canvasWidth / 2 - textWidth / 2
       break
     case 3: // Right
+      // For right alignment, position the text such that its end aligns with canvas width minus padding
       selectedLine.pos.x = canvasWidth - textWidth - PADDING
       break
   }
