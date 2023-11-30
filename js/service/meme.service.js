@@ -68,6 +68,7 @@ function addNewLine() {
       fillColor: lastLine.fillColor,
       strokeColor: lastLine.strokeColor,
       pos: { x: lastLine.pos.x, y: lastLine.pos.y + bottomPadding }, // Example: position below the last line
+      pos: { x: lastLine.pos.x, y: lastLine.pos.y + bottomPadding }, // Example: position below the last line
     })
   } else {
     newLine = _createLine({
