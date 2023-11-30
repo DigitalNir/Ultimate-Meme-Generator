@@ -1,6 +1,5 @@
 'use strict'
 const DEFAULT_FONT = 'Impact-Regular'
-// const DEFAULT_FONT = 'Arial'
 
 let gElCanvas
 let gCtx
@@ -29,16 +28,8 @@ function renderCanvas() {
 // Let's use the image natural width and height
 function drawMeme(meme) {
   const imgId = meme.selectedImgId
-  //   console.log('imgId from drawMeme:', imgId)
   const image = getImgById(imgId)
-  console.log('image:', image)
   const imgUrl = image.imgUrl
-
-  //   const image = getImgById(imgId)
-
-  //   console.log('image:', image)
-  //   console.log('image.imgUrl:', image.imgUrl)
-
   const elImg = new Image()
 
   elImg.src = imgUrl
@@ -47,17 +38,21 @@ function drawMeme(meme) {
     gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
     // Draw the text after the image has been loaded and drawn
 
-    console.log('meme.lines[0]:', meme.lines[0])
     meme.lines.forEach((line) => {
-      const txt = line.txt
-      const font = DEFAULT_FONT
-      const fillColor = line.fillColor
-      const strokeColor = line.strokeColor
-      const size = line.size
+      if (!line.pos) {
+        console.error('Line position is undefined:', line)
+        return // Skip this line
+      }
 
-      const centerX = gElCanvas.width / 2
-      const centerY = gElCanvas.height / 2
-      drawText(txt, font, size, fillColor, strokeColor, centerX, centerY)
+      drawText(
+        line.txt,
+        line.font,
+        line.size,
+        line.fillColor,
+        line.strokeColor,
+        line.pos.x,
+        line.pos.y
+      )
     })
   }
 }
@@ -67,11 +62,20 @@ function drawText(txt, font, size, fillColor, strokeColor, x, y) {
   gCtx.fillStyle = fillColor
   gCtx.strokeStyle = strokeColor
   gCtx.font = `${size}px ${font}`
-  gCtx.textAlign = 'center'
+  gCtx.textAlign = 'left' // Align text to the left
   gCtx.textBaseline = 'middle'
+
+  // Measure the text width
+  const textWidth = gCtx.measureText(txt).width
+
+  // Check if text overflows on the right side of the canvas and adjust
+  if (x + textWidth > gElCanvas.width) {
+    x = gElCanvas.width - textWidth
+  }
+
+  // Draw the text
   gCtx.fillText(txt, x, y)
   gCtx.strokeText(txt, x, y)
-  //   console.log(`Drawing text with font: ${gCtx.font}`)
 }
 
 // Lets cover a fixed-width canvas using an img
@@ -84,8 +88,6 @@ function coverCanvasWithImg(elImg) {
 
 function onClearCanvas() {
   gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
-  // We may clear part of the canvas
-  // gCtx.clearRect(0, 0, gElCanvas.width / 2, gElCanvas.height / 2)
 }
 
 function onSelectImg(elImg) {
@@ -111,15 +113,6 @@ function onChangeFontSize(mode) {
 }
 
 function onAddLine() {
-  const lineIdx = getSelectedLineIdx() + 1
-  const line = {
-    txt: document.querySelector('.meme-text').value,
-    font: 'Impact-Regular',
-    size: 20,
-    fillColor: 'red',
-    strokeColor: 'blue',
-  }
-
-  addNewLine(lineIdx, line)
+  addNewLine()
   renderMeme()
 }

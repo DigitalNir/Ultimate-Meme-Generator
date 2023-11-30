@@ -9,29 +9,30 @@ const line1 = {
   size: 60,
   fillColor: 'red',
   strokeColor: 'yellow',
+  pos: { x: 0, y: 100 }, // Example position
 }
-const line2 = {
-  txt: 'Second meme text',
-  size: 40,
-  fillColor: 'blue',
-  strokeColor: 'purple',
-}
-const line3 = {
-  txt: 'Third meme text',
-  size: 40,
-  fillColor: 'green',
-  strokeColor: 'pink',
-}
+
+// Repeat for line2 and line3...
+
+// const line2 = {
+//   txt: 'Second meme text',
+//   size: 40,
+//   fillColor: 'blue',
+//   strokeColor: 'purple',
+// }
+// const line3 = {
+//   txt: 'Third meme text',
+//   size: 40,
+//   fillColor: 'green',
+//   strokeColor: 'pink',
+// }
 
 // Create each meme using the _createMeme function
 const meme1 = _createMeme(1, 0, [line1])
 // const meme2 = _createMeme(2, 0, line2)
 // const meme3 = _createMeme(3, 0, line3)
 
-// Combine into an array
 gMeme = meme1
-
-// console.log(memes)
 
 function getMeme() {
   return gMeme
@@ -46,13 +47,26 @@ function getSelectedLineIdx() {
   return gMeme.selectedLineIdx
 }
 
-txt, (font = 'Impact-Regular'), size, fillColor, strokeColor
+function addNewLine() {
+  let newLine
+  if (gMeme.lines.length > 0) {
+    const lastLine = gMeme.lines[gMeme.lines.length - 1]
+    newLine = _createLine({
+      txt: 'New text',
+      font: lastLine.font,
+      size: lastLine.size,
+      fillColor: lastLine.fillColor,
+      strokeColor: lastLine.strokeColor,
+      pos: { x: lastLine.pos.x, y: lastLine.pos.y + 50 }, // Example: position below the last line
+    })
+  } else {
+    newLine = _createLine({
+      pos: { x: gElCanvas.width / 2, y: gElCanvas.height / 2 },
+    }) // Default position for the first line
+  }
 
-function addNewLine(lineIdx) {
-  const line = _createLine()
-  console.log('new added line:', line)
-  // setLineTxt(line.txt, lineIdx)
-  gMeme.lines.push(line)
+  gMeme.lines.push(newLine)
+  gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
 function setImg(imgId) {
@@ -87,22 +101,13 @@ function _createMeme(selectedImgId, selectedLineIdx, lines) {
   return meme
 }
 
-function _createLine(
-  txt,
+function _createLine({
+  txt = 'New text',
   font = 'Impact-Regular',
-  size,
-  fillColor,
-  strokeColor
-) {
-  console.log('gMeme:', gMeme)
-  const line = {
-    txt,
-    font,
-    size,
-    fillColor,
-    strokeColor,
-  }
-  // lineIdx
-  console.log('new line:', line)
-  return line
+  size = 20,
+  fillColor = 'black',
+  strokeColor = 'white',
+  pos = { x: 0, y: 0 }, // Default position
+} = {}) {
+  return { txt, font, size, fillColor, strokeColor, pos }
 }
