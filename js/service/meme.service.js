@@ -82,12 +82,12 @@ function setLineTxt(txt, lineIdx) {
 }
 
 function setColor(color, mode) {
-  if (mode === 1) gMeme.lines[0].fillColor = color
-  else if (mode === 2) gMeme.lines[0].strokeColor = color
+  if (mode === 1) gMeme.lines[gMeme.selectedLineIdx].fillColor = color
+  else if (mode === 2) gMeme.lines[gMeme.selectedLineIdx].strokeColor = color
 }
 
 function setFontSize(mode) {
-  gMeme.lines[0].size += mode
+  gMeme.lines[gMeme.selectedLineIdx].size += mode
 }
 
 // Private functions
