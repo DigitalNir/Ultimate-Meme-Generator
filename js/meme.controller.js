@@ -47,15 +47,18 @@ function drawMeme(meme) {
     gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
     // Draw the text after the image has been loaded and drawn
 
-    const txt = meme.lines[0].txt
-    const font = DEFAULT_FONT
-    const fillColor = meme.lines[0].fillColor
-    const strokeColor = meme.lines[0].strokeColor
-    const size = meme.lines[0].size
+    console.log('meme.lines[0]:', meme.lines[0])
+    meme.lines.forEach((line) => {
+      const txt = line.txt
+      const font = DEFAULT_FONT
+      const fillColor = line.fillColor
+      const strokeColor = line.strokeColor
+      const size = line.size
 
-    const centerX = gElCanvas.width / 2
-    const centerY = gElCanvas.height / 2
-    drawText(txt, font, size, fillColor, strokeColor, centerX, centerY)
+      const centerX = gElCanvas.width / 2
+      const centerY = gElCanvas.height / 2
+      drawText(txt, font, size, fillColor, strokeColor, centerX, centerY)
+    })
   }
 }
 
@@ -90,7 +93,8 @@ function onSelectImg(elImg) {
 }
 
 function onLineTxt(ev) {
-  setLineTxt(ev.target.value)
+  setLineTxt(ev.target.value, getSelectedLineIdx())
+  console.log('onlinetxt')
   renderMeme()
 }
 
@@ -103,5 +107,19 @@ function onChangeColor(ev, mode) {
 
 function onChangeFontSize(mode) {
   setFontSize(mode)
+  renderMeme()
+}
+
+function onAddLine() {
+  const lineIdx = getSelectedLineIdx() + 1
+  const line = {
+    txt: document.querySelector('.meme-text').value,
+    font: 'Impact-Regular',
+    size: 20,
+    fillColor: 'red',
+    strokeColor: 'blue',
+  }
+
+  addNewLine(lineIdx, line)
   renderMeme()
 }

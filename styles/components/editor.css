@@ -21,8 +21,7 @@
   text-align: center;
 }
 
-.icon-increase-font,
-.icon-decrease-font {
+.icon {
   width: 50px;
   height: 50px;
 }
@@ -33,7 +32,7 @@
   justify-content: flex-end;
 }
 
-.font-settings-container {
+.container-font-settings {
   gap: 10px;
 }
 
