@@ -47,8 +47,14 @@ function getSelectedLineIdx() {
   return gMeme.selectedLineIdx
 }
 
+function setSelectLine() {
+  if (gMeme.selectedLineIdx < gMeme.lines.length) gMeme.selectedLineIdx++
+  else gMeme.selectedLineIdx = 0
+}
+
 function addNewLine() {
   let newLine
+  const bottomPadding = 100
   if (gMeme.lines.length > 0) {
     const lastLine = gMeme.lines[gMeme.lines.length - 1]
     newLine = _createLine({
@@ -57,7 +63,7 @@ function addNewLine() {
       size: lastLine.size,
       fillColor: lastLine.fillColor,
       strokeColor: lastLine.strokeColor,
-      pos: { x: lastLine.pos.x, y: lastLine.pos.y + 50 }, // Example: position below the last line
+      pos: { x: lastLine.pos.x, y: lastLine.pos.y + bottomPadding }, // Example: position below the last line
     })
   } else {
     newLine = _createLine({

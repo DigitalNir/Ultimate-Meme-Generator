@@ -54,6 +54,16 @@ function drawMeme(meme) {
         line.pos.y
       )
     })
+
+    if (meme.selectedLineIdx !== null && meme.lines[meme.selectedLineIdx]) {
+      const selectedLine = meme.lines[meme.selectedLineIdx]
+      gCtx.font = `${selectedLine.size}px ${selectedLine.font}`
+      const textWidth = gCtx.measureText(selectedLine.txt).width
+      const textHeight = selectedLine.size // Approximate height from font size
+
+      // Draw the rectangle around the selected line
+      drawRect(selectedLine.pos.x, selectedLine.pos.y, textWidth, textHeight)
+    }
   }
 }
 
@@ -62,8 +72,8 @@ function drawText(txt, font, size, fillColor, strokeColor, x, y) {
   gCtx.fillStyle = fillColor
   gCtx.strokeStyle = strokeColor
   gCtx.font = `${size}px ${font}`
-  gCtx.textAlign = 'left' // Align text to the left
-  gCtx.textBaseline = 'middle'
+  // gCtx.textAlign = 'left' // Align text to the left
+  // gCtx.textBaseline = 'middle'
 
   // Measure the text width
   const textWidth = gCtx.measureText(txt).width
@@ -76,6 +86,21 @@ function drawText(txt, font, size, fillColor, strokeColor, x, y) {
   // Draw the text
   gCtx.fillText(txt, x, y)
   gCtx.strokeText(txt, x, y)
+}
+
+function drawRect(x, y, width, fontSize) {
+  const padding = 10 // Padding of 10px on top bottom
+  const rectHeight = fontSize
+  gCtx.lineWidth = 2
+  gCtx.strokeStyle = 'blue'
+
+  // Adjust rectangle position and size to surround the text with padding
+  gCtx.strokeRect(
+    x,
+    y - fontSize + padding, // Adjust y to top of the text plus padding
+    width + padding,
+    rectHeight
+  )
 }
 
 // Lets cover a fixed-width canvas using an img
@@ -114,5 +139,10 @@ function onChangeFontSize(mode) {
 
 function onAddLine() {
   addNewLine()
+  renderMeme()
+}
+
+function onSwitchLine() {
+  setSelectLine()
   renderMeme()
 }
