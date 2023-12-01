@@ -43,7 +43,7 @@ function drawMeme(meme, callback) {
         console.error('Line position is undefined:', line)
         return // Skip this line
       }
-
+      gCtx.font = line.font
       drawText(
         line.txt,
         line.font,
@@ -89,6 +89,7 @@ function drawText(txt, font, size, fillColor, strokeColor, x, y) {
   gCtx.fillStyle = fillColor
   gCtx.strokeStyle = strokeColor
   gCtx.font = `${size}px ${font}`
+  console.log('gCtx.font from drawText:', gCtx.font)
   // gCtx.textAlign = 'left' // Align text to the left
   // gCtx.textBaseline = 'middle'
   // gCtx.textAlign = 'left' // Align text to the left
@@ -119,6 +120,32 @@ function drawRect(x, y, width, fontSize) {
     width + PADDING,
     rectHeight
   )
+}
+
+function updateTextRect(lineIndex) {
+  const line = gMeme.lines[lineIndex]
+
+  if (!line) return
+
+  gCtx.font = `${line.size}px ${line.font}`
+  const textWidth = gCtx.measureText(line.txt).width
+  line.rect.width = textWidth
+  line.rect.height = line.size * 1.2
+
+  switch (line.alignment) {
+    case 'left':
+      line.rect.x = line.pos.x
+      break
+    case 'center':
+      line.rect.x = line.pos.x - textWidth / 2
+      break
+    case 'right':
+      line.rect.x = line.pos.x - textWidth
+      break
+  }
+
+  // y position adjustment
+  line.rect.y = line.pos.y - line.rect.height / 2
 }
 
 // Lets cover a fixed-width canvas using an img
@@ -177,30 +204,19 @@ function onChangeAlignment(mode) {
   renderMeme()
 }
 
-function updateTextRect(lineIndex) {
-  const line = gMeme.lines[lineIndex]
+function onChangeFont(ev) {
+  const newFont = ev.target.value
+  setFont(newFont) // Assuming setFont updates the font in your data model
 
-  if (!line) return
+  const selectedLine = getSelectedLine()
+  if (selectedLine) {
+    selectedLine.font = newFont
 
-  gCtx.font = `${line.size}px ${line.font}`
-  const textWidth = gCtx.measureText(line.txt).width
-  line.rect.width = textWidth
-  line.rect.height = line.size * 1.2
-
-  switch (line.alignment) {
-    case 'left':
-      line.rect.x = line.pos.x
-      break
-    case 'center':
-      line.rect.x = line.pos.x - textWidth / 2
-      break
-    case 'right':
-      line.rect.x = line.pos.x - textWidth
-      break
+    // gCtx.font = `${selectedLine.size}px ${selectedLine.font}`
+    gCtx.font = `${selectedLine.size}px ${selectedLine.font}`
+    console.log('applying selected font', gCtx.font)
+    renderMeme() // Re-render to apply the new font
   }
-
-  // y position adjustment
-  line.rect.y = line.pos.y - line.rect.height / 2
 }
 
 function onMouseClick(ev) {
@@ -243,6 +259,7 @@ function onMouseClick(ev) {
   }
 }
 
+// Download functions
 function prepareCanvasForDownload(callback) {
   // Set the flag to false to hide the rectangle
   shouldDrawRect = false

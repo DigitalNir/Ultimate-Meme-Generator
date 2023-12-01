@@ -69,10 +69,6 @@ function addNewLine() {
       pos: { x: lastLine.pos.x, y: lastLine.pos.y + bottomPadding },
       alignment: 'left',
     })
-  } else {
-    newLine = _createLine({
-      pos: { x: gElCanvas.width / 2, y: gElCanvas.height / 2 },
-    }) // Default position for the first line
   }
 
   gMeme.lines.push(newLine)
@@ -85,9 +81,7 @@ function setImg(imgId) {
 }
 
 function setLineTxt(txt, lineIdx) {
-  console.log('hello from setlinetxt')
   gMeme.lines[lineIdx].txt = txt
-  console.log('gMeme.lines[lineIdx].txt:', gMeme.lines[lineIdx].txt)
   gMeme.selectedLineIdx = lineIdx
 }
 
@@ -118,6 +112,10 @@ function setAlignment(mode, textWidth, canvasWidth) {
       selectedLine.pos.x = canvasWidth - textWidth - PADDING
       break
   }
+}
+
+function setFont(font) {
+  return (getSelectedLine().font = font)
 }
 
 // Private functions

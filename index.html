@@ -53,6 +53,29 @@
               title="Add Line"
             />
           </button>
+        </div>
+
+        <div class="container-font-settings">
+          <button
+            class="btn btn-font btn-increase-font"
+            onclick="onChangeFontSize(1)"
+          >
+            <img
+              class="icon icon-increase-font"
+              src="img/icons/increase font - icon.png"
+              alt="Increase Font"
+              title="Increase Font"
+            />
+          </button>
+
+          <button class="btn btn-decrease-font" onclick="onChangeFontSize(-1)">
+            <img
+              class="icon icon-decrease-font"
+              src="img/icons/decrease font - icon.png"
+              alt="Decrease Font"
+              title="Decrease Font"
+            />
+          </button>
 
           <button
             class="btn btn-font btn-align-left"
@@ -89,9 +112,22 @@
               title="Align to the right"
             />
           </button>
-        </div>
 
-        <div class="container-font-settings">
+          <select
+            class="select-font"
+            name="select-font"
+            id="select-font"
+            title="Select font"
+            onchange="onChangeFont(event)"
+          >
+            <option value="Impact-Regular" selected>Impact</option>
+            <option value="Cool-Unicorn">Cool Unicorn</option>
+            <option value="Monkey-Sausage">Monkey Sausage</option>
+            <option value="Molast">Molast</option>
+            <option value="Lindsay">Lindsay</option>
+            <option value="Montserrat-Regular">Montserrat Regular</option>
+          </select>
+
           <input
             class="color-picker color-picker-fill"
             type="color"
@@ -109,27 +145,6 @@
             title="Set stroke color"
             oninput="onChangeColor(event, 2)"
           />
-
-          <button
-            class="btn btn-font btn-increase-font"
-            onclick="onChangeFontSize(1)"
-          >
-            <img
-              class="icon icon-increase-font"
-              src="img/icons/increase font - icon.png"
-              alt="Increase Font"
-              title="Increase Font"
-            />
-          </button>
-
-          <button class="btn btn-decrease-font" onclick="onChangeFontSize(-1)">
-            <img
-              class="icon icon-decrease-font"
-              src="img/icons/decrease font - icon.png"
-              alt="Decrease Font"
-              title="Decrease Font"
-            />
-          </button>
         </div>
         <a
           href="#"

@@ -7,3 +7,23 @@
   font-family: Impact-Regular;
   src: url(../../fonts/Impact/Impact.ttf);
 }
+
+@font-face {
+  font-family: Cool-Unicorn;
+  src: url(../../fonts/CoolUnicorn/CoolUnicorn.ttf);
+}
+
+@font-face {
+  font-family: Monkey-Sausage;
+  src: url(../../fonts/MonkeySausage/MonkeySausage.ttf);
+}
+
+@font-face {
+  font-family: Molast;
+  src: url(../../fonts/Molast/Molast.ttf);
+}
+
+@font-face {
+  font-family: Lindsay;
+  src: url(../../fonts/Lindsay/Lindsay.ttf);
+}
