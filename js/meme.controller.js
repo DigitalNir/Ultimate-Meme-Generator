@@ -219,6 +219,11 @@ function onChangeFont(ev) {
   }
 }
 
+function onDeleteLine() {
+  deleteLine()
+  renderMeme()
+}
+
 function onMouseClick(ev) {
   const { offsetX, offsetY } = ev
   const meme = getMeme()

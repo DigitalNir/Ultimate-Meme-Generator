@@ -3,7 +3,7 @@ let gMeme = null
 let gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
 
 // Define the line data for each meme
-const line1 = {
+const defaultLine = {
   txt: 'Add Text Here',
   font: 'Impact-Regular',
   size: 60,
@@ -29,7 +29,7 @@ const line1 = {
 // }
 
 // Create each meme using the _createMeme function
-const meme1 = _createMeme(1, 0, [line1])
+const meme1 = _createMeme(1, 0, [defaultLine])
 // const meme2 = _createMeme(2, 0, line2)
 // const meme3 = _createMeme(3, 0, line3)
 
@@ -57,7 +57,8 @@ function setSelectLineOnSwitch() {
 
 function addNewLine() {
   let newLine
-  const bottomPadding = 100
+  const defaultPos = { x: 100, y: 100 }
+
   if (gMeme.lines.length > 0) {
     const lastLine = gMeme.lines[gMeme.lines.length - 1]
     newLine = _createLine({
@@ -66,8 +67,19 @@ function addNewLine() {
       size: lastLine.size,
       fillColor: lastLine.fillColor,
       strokeColor: lastLine.strokeColor,
-      pos: { x: lastLine.pos.x, y: lastLine.pos.y + bottomPadding },
-      alignment: 'left',
+      pos: { x: lastLine.pos.x, y: lastLine.pos.y + 100 }, // 100 = padding
+      alignment: lastLine.alignment,
+    })
+  } else {
+    // Initialize the first line with default settings
+    newLine = _createLine({
+      txt: 'New text',
+      font: DEFAULT_FONT, // Use a constant or a default value
+      size: 60,
+      fillColor: 'white',
+      strokeColor: 'black',
+      pos: defaultPos,
+      alignment: 'center',
     })
   }
 
@@ -75,9 +87,13 @@ function addNewLine() {
   gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
+function deleteLine() {
+  const selectedLineIdx = getSelectedLineIdx()
+  gMeme.lines.splice(selectedLineIdx, 1)
+}
+
 function setImg(imgId) {
   gMeme.selectedImgId = imgId
-  console.log('gMeme.selectedImgId:', gMeme.selectedImgId)
 }
 
 function setLineTxt(txt, lineIdx) {
