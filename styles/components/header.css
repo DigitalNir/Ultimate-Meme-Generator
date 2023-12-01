@@ -1,8 +1,27 @@
+.main-header {
+  grid-column: 2/3;
+  background-color: var(--clrHeader);
+  padding: 10px 20px;
+  margin: 30px 0;
+  border-radius: 50px;
+}
+
 .img-logo {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
 }
 
 .main-nav-list {
-  width: 200px;
+}
+
+.main-nav-list li a {
+  font-size: 3rem;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.main-nav-list li a:hover {
+  color: var(--clrLinkHover);
 }

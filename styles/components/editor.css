@@ -1,3 +1,30 @@
+.meme-text {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 2rem;
+  color: #333; /* Dark text for contrast */
+}
+
+.meme-text:focus {
+  border-color: var(--clrHeader); /* Highlight on focus */
+  outline: none;
+}
+
+.meme-text::placeholder {
+  color: #a9a9a9; /* Light color for placeholder */
+}
+
+@media screen and (max-width: 600px) {
+  .meme-text {
+    width: 100%; /* Adjust width for smaller screens */
+  }
+}
+
 .btn {
   margin: 0;
   padding: 0;
@@ -10,15 +37,20 @@
 .button-style {
   display: inline-block;
   padding: 10px;
-  background-color: blue;
+  background-color: var(--clrHeader);
   color: white;
   border: none;
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
-  width: 100px;
+  /* width: 100px; */
   letter-spacing: 1.5px;
   text-align: center;
+  font-size: 2em;
+}
+
+.button-style:hover {
+  color: var(--clrLinkHover);
 }
 
 .icon {
@@ -65,5 +97,5 @@
 }
 
 .select-font:focus {
-  border-color: #555;
+  border-color: var(--clrHeader);
 }

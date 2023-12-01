@@ -1,11 +1,13 @@
 :root {
   /* color */
   --clrPrimary1: #b4ad9e;
-  --clrPrimary2: #f0f0f0;
+  --clrHeader: #4a90e2;
+  --clrLinkHover: #ffd700;
   --clrPrimaryBase: #626262;
   --clrPrimary-1: #000;
 
   /* layout  */
+  --page-margins: 200px;
   --card-layout-margin: 80px;
   --card-layout-margin-center: 60px;
 

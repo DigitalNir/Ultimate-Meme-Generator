@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body class="main-layout" onload="onInitMeme(); onInitGallery()">
-    <header class="main-header flex space-between align-center full">
+    <header class="main-header flex space-between align-center">
       <img class="img-logo" src="img/logo.png" alt="Memfy logo" />
       <nav class="main-nav">
         <ul class="main-nav-list clean-list flex space-between align-center">
@@ -32,6 +32,7 @@
           type="text"
           name="meme-text"
           id="meme-text"
+          placeholder="Enter Text Here"
           oninput="onLineTxt(event)"
         />
 
