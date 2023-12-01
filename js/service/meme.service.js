@@ -10,6 +10,7 @@ const line1 = {
   fillColor: 'white',
   strokeColor: 'black',
   pos: { x: 0, y: 100 },
+  rect: { x: 50, y: 80, width: 0, height: 0 }, // Updated dynamically
 }
 
 // Repeat for line2 and line3...
@@ -66,6 +67,7 @@ function addNewLine() {
       fillColor: lastLine.fillColor,
       strokeColor: lastLine.strokeColor,
       pos: { x: lastLine.pos.x, y: lastLine.pos.y + bottomPadding },
+      alignment: 'left',
     })
   } else {
     newLine = _createLine({
@@ -135,7 +137,8 @@ function _createLine({
   size = 20,
   fillColor = 'black',
   strokeColor = 'white',
-  pos = { x: 0, y: 0 }, // Default position
+  pos = { x: 0, y: 0 },
+  rect = { x: 0, y: 0, width: 0, height: 0 }, // Initialize rect here
 } = {}) {
-  return { txt, font, size, fillColor, strokeColor, pos }
+  return { txt, font, size, fillColor, strokeColor, pos, rect }
 }
