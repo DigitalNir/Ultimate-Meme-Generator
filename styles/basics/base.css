@@ -15,3 +15,8 @@ body {
 img {
   width: 100%;
 }
+
+canvas {
+  max-width: 100%; /* Ensures canvas doesn't exceed the width of its container */
+  height: auto; /* Maintains aspect ratio */
+}
