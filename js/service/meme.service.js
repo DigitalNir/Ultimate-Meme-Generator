@@ -69,8 +69,6 @@ function moveLine(mode, canvasHeight) {
 
   // Adjust the position of the line
   line.pos.y += mode * movementStep
-
-  renderMeme() // Re-render to apply the change
 }
 
 function addNewLine() {

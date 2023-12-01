@@ -28,3 +28,7 @@ function onImgSelect(ev) {
 function onShowGallery() {
   document.querySelector('.section-gallery').classList.remove('hidden')
 }
+
+function toggleMenu() {
+  document.body.classList.toggle('menu-open')
+}
