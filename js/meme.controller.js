@@ -195,6 +195,11 @@ function onSwitchLine() {
   renderMeme()
 }
 
+function onMoveLine(mode) {
+  moveLine(mode, gElCanvas.height)
+  renderMeme()
+}
+
 function onChangeAlignment(mode) {
   const selectedLine = getSelectedLine()
   gCtx.font = `${selectedLine.size}px ${selectedLine.font || DEFAULT_FONT}`

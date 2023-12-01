@@ -37,6 +37,20 @@
         />
 
         <div class="container-input-settings flex">
+          <button class="btn btn-font btn-move-down" onclick="onMoveLine(1)">
+            <i
+              class="icon icon-move-down fa-solid fa-arrow-down"
+              title="Move Down"
+            ></i>
+          </button>
+
+          <button class="btn btn-font btn-move-up" onclick="onMoveLine(-1)">
+            <i
+              class="icon icon-move-down fa-solid fa-arrow-up"
+              title="Move Up"
+            ></i>
+          </button>
+
           <button class="btn btn-font btn-switch-line" onclick="onSwitchLine()">
             <img
               class="icon icon-switch-line"
@@ -165,6 +179,10 @@
         >
       </div>
     </section>
+    <script
+      src="https://kit.fontawesome.com/9ce79f0752.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/service/utils.service.js"></script>
     <script src="js/service/gallery.service.js"></script>
     <script src="js/service/meme.service.js"></script>

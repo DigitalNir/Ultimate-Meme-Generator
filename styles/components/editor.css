@@ -99,3 +99,8 @@
 .select-font:focus {
   border-color: var(--clrHeader);
 }
+
+.btn-move-down,
+.btn-move-up {
+  font-size: 3rem;
+}

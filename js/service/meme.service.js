@@ -55,6 +55,24 @@ function setSelectLineOnSwitch() {
   else gMeme.selectedLineIdx = 0
 }
 
+function moveLine(mode, canvasHeight) {
+  const line = getSelectedLine()
+  const lineHeight = line.size // Assuming the height of the line is determined by its font size
+  const movementStep = 20 // The amount by which the line moves with each button press
+
+  // For moving up, check if the line is too close to the top of the canvas
+  if (mode === -1 && line.pos.y - movementStep < lineHeight) return
+
+  // For moving down, check if the line is too close to the bottom of the canvas
+  if (mode === 1 && line.pos.y + movementStep > canvasHeight - lineHeight)
+    return
+
+  // Adjust the position of the line
+  line.pos.y += mode * movementStep
+
+  renderMeme() // Re-render to apply the change
+}
+
 function addNewLine() {
   let newLine
   const defaultPos = { x: 100, y: 100 }
