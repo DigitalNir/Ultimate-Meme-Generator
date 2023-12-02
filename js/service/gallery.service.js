@@ -31,7 +31,6 @@ function createImgs() {
 
 // Create image object
 function _createImg(keywords) {
-  // [{ id: gImgId, url: 'img/1.jpg', keywords: ['funny', 'cat'] }]}
   return { imgId: ++gImgId, imgUrl: `${IMG_PATH}/${gImgId}.jpg`, keywords }
 }
 

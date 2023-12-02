@@ -33,7 +33,6 @@ function renderAllMemes() {
 
 function onMemeSelect(memeId, ev) {
   //   ev.preventDefault()
-  // console.log('hi from on memeSelect')
   ev.stopPropagation()
   console.log('memeId:', memeId)
   console.log('ev.target:', ev.target)

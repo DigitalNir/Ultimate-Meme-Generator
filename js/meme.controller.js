@@ -207,8 +207,7 @@ function onChangeAlignment(mode) {
 
 function onChangeFont(ev) {
   const newFont = ev.target.value
-  setFont(newFont) // Assuming setFont updates the font in your data model
-
+  setFont(newFont)
   const selectedLine = getSelectedLine()
   if (selectedLine) {
     selectedLine.font = newFont
@@ -233,7 +232,7 @@ function onMouseClick(ev) {
   const clickedLine = meme.lines.find((line) => {
     gCtx.font = `${line.size}px ${line.font || DEFAULT_FONT}`
     const textWidth = gCtx.measureText(line.txt).width
-    const textHeight = line.size * 1.2 // Adjust height calculation if necessary
+    const textHeight = line.size * 1.2 // Adjust height calculation
 
     let startX = line.pos.x
     if (line.alignment === 'center') {

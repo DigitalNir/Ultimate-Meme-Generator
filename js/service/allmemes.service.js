@@ -14,24 +14,6 @@ const defaultLine = {
 const meme1 = _createMeme(1, 0, [defaultLine])
 gMeme = meme1
 
-// const line2 = {
-//   txt: 'Second meme text',
-//   size: 40,
-//   fillColor: 'blue',
-//   strokeColor: 'purple',
-// }
-// const line3 = {
-//   txt: 'Third meme text',
-//   size: 40,
-//   fillColor: 'green',
-//   strokeColor: 'pink',
-// }
-
-// Create each meme using the _createMeme function
-
-// const meme2 = _createMeme(2, 0, line2)
-// const meme3 = _createMeme(3, 0, line3)
-
 createMemes()
 
 function createMemes() {
@@ -70,7 +52,6 @@ function getMemeById(memeId) {
 
 function getImgDataURL(meme) {
   return meme.dataUrl
-  //   return getImgById(meme.selectedImgId)
 }
 
 function setMemeDataURL(dataUrl) {
