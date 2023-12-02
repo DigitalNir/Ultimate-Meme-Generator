@@ -14,7 +14,6 @@ function onInitMeme() {
 
 function renderMeme(callback) {
   const meme = getMeme()
-  console.log('meme:', meme)
 
   renderCanvas()
   drawMeme(meme, callback)
@@ -89,7 +88,6 @@ function drawText(txt, font, size, fillColor, strokeColor, x, y) {
   gCtx.fillStyle = fillColor
   gCtx.strokeStyle = strokeColor
   gCtx.font = `${size}px ${font}`
-  console.log('gCtx.font from drawText:', gCtx.font)
 
   // Measure the text width
   const textWidth = gCtx.measureText(txt).width
@@ -162,7 +160,6 @@ function onSelectImg(elImg) {
 
 function onLineTxt(ev) {
   setLineTxt(ev.target.value, getSelectedLineIdx())
-  console.log('onlinetxt')
   renderMeme()
 }
 
@@ -213,7 +210,6 @@ function onChangeFont(ev) {
     selectedLine.font = newFont
 
     gCtx.font = `${selectedLine.size}px ${selectedLine.font}`
-    console.log('applying selected font', gCtx.font)
     renderMeme() // Re-render to apply the new font
   }
 }
@@ -226,8 +222,6 @@ function onDeleteLine() {
 function onMouseClick(ev) {
   const { offsetX, offsetY } = ev
   const meme = getMeme()
-
-  console.log('offsetX:', offsetX, '\noffsetY:', offsetY)
 
   const clickedLine = meme.lines.find((line) => {
     gCtx.font = `${line.size}px ${line.font || DEFAULT_FONT}`

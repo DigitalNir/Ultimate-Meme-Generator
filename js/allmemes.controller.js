@@ -7,8 +7,6 @@ function renderAllMemes() {
   const elAllMemes = document.querySelector('.section-allmemes')
   elAllMemes.innerHTML = '' // Clear existing memes
 
-  console.log('gAllMemes:', gAllMemes)
-
   const allMemes = getAllMemes()
   allMemes.forEach((meme) => {
     const containerSavedMeme = document.createElement('div')
@@ -34,8 +32,7 @@ function renderAllMemes() {
 function onMemeSelect(memeId, ev) {
   //   ev.preventDefault()
   ev.stopPropagation()
-  console.log('memeId:', memeId)
-  console.log('ev.target:', ev.target)
+
   const meme = getMemeById(memeId)
   setCurrentMeme(meme)
 
@@ -58,7 +55,6 @@ function onDeleteMeme(ev) {
   ev.preventDefault()
   const memeId = ev.target.dataset.memeId
   deleteMeme(memeId)
-  console.log('Deleting...')
   renderAllMemes()
 }
 

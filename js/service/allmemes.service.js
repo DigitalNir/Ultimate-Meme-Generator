@@ -21,9 +21,9 @@ function createMemes() {
   if (gAllMemes && gAllMemes.length) return
 
   // If no images in storage - generate demo data
-  gAllMemes.push(meme1)
+  gAllMemes.push({ memeId: makeId(), ...meme1 })
 
-  //   _saveMemesToStorage()
+  _saveMemesToStorage()
 }
 
 function getAllMemes() {
@@ -42,6 +42,8 @@ function addMeme() {
 
 function deleteMeme(memeId) {
   const memeIdx = gAllMemes.findIndex((meme) => meme.memeId === memeId)
+  if (memeIdx === -1) return
+
   gAllMemes.splice(memeIdx, 1)
   _saveMemesToStorage()
 }

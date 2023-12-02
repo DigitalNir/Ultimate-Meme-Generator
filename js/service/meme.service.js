@@ -103,8 +103,6 @@ function setAlignment(mode, textWidth, canvasWidth) {
   const selectedLine = gMeme.lines[getSelectedLineIdx()]
   if (!selectedLine) return
 
-  console.log('gMeme.lines:', gMeme.lines)
-
   switch (mode) {
     case 1: // Left
       selectedLine.pos.x = PADDING
