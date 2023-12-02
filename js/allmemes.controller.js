@@ -23,9 +23,8 @@ function renderAllMemes() {
     const elImg = new Image()
     const dataUrl = getImgDataURL(meme)
     elImg.src = dataUrl
-    // meme.dataset.memeId = idx
     elImg.setAttribute('data-meme-id', meme.memeId)
-    elImg.setAttribute('onclick', `onMemeSelect(${meme.memeId}, event)`)
+    elImg.setAttribute('onclick', `onMemeSelect('${meme.memeId}', event)`)
     containerSavedMeme.appendChild(elImg)
     containerSavedMeme.appendChild(deleteButton)
     elAllMemes.appendChild(containerSavedMeme)
@@ -34,6 +33,7 @@ function renderAllMemes() {
 
 function onMemeSelect(memeId, ev) {
   //   ev.preventDefault()
+  console.log('hi from on memeSelect')
   ev.stopPropagation()
   console.log('memeId:', memeId)
   console.log('ev.target:', ev.target)
@@ -45,11 +45,6 @@ function onMemeSelect(memeId, ev) {
 
   const elEditor = document.querySelector('.section-editor')
   elEditor.classList.remove('is-hidden')
-
-  //   console.log('elAllMemes:', elAllMemes)
-  //   console.log('elEditor:', elEditor)
-  //   debugger
-  // ev.preventDefault()
 }
 
 function onSaveMeme() {

@@ -1,5 +1,4 @@
 const gAllMemes = []
-let gMemeId = 0
 
 // Define the line data for each meme
 const defaultLine = {
@@ -55,25 +54,19 @@ function saveMeme() {
 }
 
 function addMeme() {
-  gMemeId++
-  const meme = { memeId: gMemeId, ...gMeme }
+  const meme = { memeId: makeId(), ...gMeme }
   gAllMemes.push(meme)
 }
 
 function deleteMeme(memeId) {
-  gAllMemes.splice(memeId, 1)
+  const memeIdx = gAllMemes.findIndex((meme) => meme.memeId === memeId)
+  gAllMemes.splice(memeIdx, 1)
   _saveMemesToStorage()
 }
 
 function getImgDataURL(meme) {
   return meme.dataUrl
   //   return getImgById(meme.selectedImgId)
-}
-
-function removeBook(bookId) {
-  const bookIdx = gBooks.findIndex((book) => book.id === bookId)
-  gBooks.splice(bookIdx, 1)
-  _saveBooksToStorage()
 }
 
 function setMemeDataURL(dataUrl) {
