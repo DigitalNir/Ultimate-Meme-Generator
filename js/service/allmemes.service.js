@@ -64,6 +64,10 @@ function deleteMeme(memeId) {
   _saveMemesToStorage()
 }
 
+function getMemeById(memeId) {
+  return gAllMemes.find((meme) => meme.memeId === memeId)
+}
+
 function getImgDataURL(meme) {
   return meme.dataUrl
   //   return getImgById(meme.selectedImgId)

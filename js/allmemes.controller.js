@@ -33,11 +33,11 @@ function renderAllMemes() {
 
 function onMemeSelect(memeId, ev) {
   //   ev.preventDefault()
-  console.log('hi from on memeSelect')
+  // console.log('hi from on memeSelect')
   ev.stopPropagation()
   console.log('memeId:', memeId)
   console.log('ev.target:', ev.target)
-  const meme = gAllMemes.find((meme) => meme.memeId === memeId)
+  const meme = getMemeById(memeId)
   setCurrentMeme(meme)
 
   const elAllMemes = document.querySelector('.section-allmemes')
