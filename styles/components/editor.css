@@ -97,3 +97,13 @@
 .btn-move-up {
   font-size: 3rem;
 }
+
+.save-container {
+  width: 100%;
+}
+
+.btn-style-save,
+.btn-style-share {
+  flex: 1;
+  margin: 0 5px;
+}

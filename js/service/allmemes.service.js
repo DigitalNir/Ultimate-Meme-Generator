@@ -60,6 +60,11 @@ function addMeme() {
   gAllMemes.push(meme)
 }
 
+function deleteMeme(memeId) {
+  gAllMemes.splice(memeId, 1)
+  _saveMemesToStorage()
+}
+
 function getImgDataURL(meme) {
   return meme.dataUrl
   //   return getImgById(meme.selectedImgId)

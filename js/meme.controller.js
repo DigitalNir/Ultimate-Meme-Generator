@@ -291,3 +291,32 @@ function downloadMeme(elLink) {
 }
 
 function prepareCanvasForSave() {}
+
+// Share on Facerbook
+function onUploadImg() {
+  // Gets the image from the canvas
+  const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
+
+  function onSuccess(uploadedImgUrl) {
+    // Handle some special characters
+    const url = encodeURIComponent(uploadedImgUrl)
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${url}`)
+  }
+
+  // Send the image to the server
+  doUploadImg(imgDataUrl, onSuccess)
+}
+
+function onShareMeme() {
+  // Gets the image from the canvas
+  const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
+
+  function onSuccess(uploadedImgUrl) {
+    // Handle some special characters
+    const url = encodeURIComponent(uploadedImgUrl)
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${url}`)
+  }
+
+  // Send the image to the server
+  doUploadImg(imgDataUrl, onSuccess)
+}

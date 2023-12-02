@@ -11,14 +11,24 @@ function renderAllMemes() {
 
   const allMemes = getAllMemes()
   allMemes.forEach((meme) => {
+    const containerSavedMeme = document.createElement('div')
+    const deleteButton = document.createElement('button')
+    deleteButton.setAttribute('data-meme-id', meme.memeId)
+
+    containerSavedMeme.className = 'container-saved-meme'
+    deleteButton.className = 'btn btn-delete-meme'
+    deleteButton.innerText = '✖'
+    deleteButton.addEventListener('click', (event) => onDeleteMeme(event))
+
     const elImg = new Image()
     const dataUrl = getImgDataURL(meme)
     elImg.src = dataUrl
     // meme.dataset.memeId = idx
     elImg.setAttribute('data-meme-id', meme.memeId)
     elImg.setAttribute('onclick', `onMemeSelect(${meme.memeId}, event)`)
-
-    elAllMemes.appendChild(elImg)
+    containerSavedMeme.appendChild(elImg)
+    containerSavedMeme.appendChild(deleteButton)
+    elAllMemes.appendChild(containerSavedMeme)
   })
 }
 
@@ -46,6 +56,15 @@ function onSaveMeme() {
   const dataUrl = getCanvasAsDataUrl()
   setMemeDataURL(dataUrl)
   saveMeme()
+  renderAllMemes()
+}
+
+function onDeleteMeme(ev) {
+  ev.stopPropagation()
+  ev.preventDefault()
+  const memeId = ev.target.dataset.memeId
+  deleteMeme(memeId)
+  console.log('Deleting...')
   renderAllMemes()
 }
 

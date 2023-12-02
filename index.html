@@ -177,6 +177,7 @@
             oninput="onChangeColor(event, 2)"
           />
         </div>
+
         <a
           href="#"
           class="button-style"
@@ -185,7 +186,17 @@
           >Download</a
         >
 
-        <a href="#" class="button-style" onclick="onSaveMeme()">Save</a>
+        <div class="save-container flex space-between">
+          <a href="#" class="button-style btn-style-save" onclick="onSaveMeme()"
+            >Save</a
+          >
+          <a
+            href="#"
+            class="button-style btn-style-share"
+            onclick="onShareMeme()"
+            >Share</a
+          >
+        </div>
       </div>
     </section>
     <script
@@ -193,10 +204,10 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/service/utils.service.js"></script>
+    <script src="js/service/share.service.js"></script>
     <script src="js/service/gallery.service.js"></script>
-    <script src="js/service/meme.service.js"></script>
-
     <script src="js/gallery.controller.js"></script>
+    <script src="js/service/meme.service.js"></script>
     <script src="js/meme.controller.js"></script>
     <script src="js/service/allmemes.service.js"></script>
     <script src="js/allmemes.controller.js"></script>

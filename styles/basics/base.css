@@ -20,3 +20,21 @@ canvas {
   max-width: 100%; /* Ensures canvas doesn't exceed the width of its container */
   height: auto; /* Maintains aspect ratio */
 }
+
+.container-saved-meme {
+  position: relative;
+}
+
+.btn-delete-meme {
+  position: absolute;
+  display: inline-block;
+  font-size: 1.2rem;
+  width: 15%;
+  height: 15%;
+  right: 5px;
+  top: 5px;
+}
+
+.btn-delete-meme:hover {
+  color: red;
+}
