@@ -27,6 +27,8 @@ function onImgSelect(ev) {
 
 function onShowGallery() {
   document.querySelector('.section-gallery').classList.remove('hidden')
+  document.querySelector('.section-allmemes').classList.add('hidden')
+  document.querySelector('.section-editor').classList.add('hidden')
 }
 
 function toggleMenu() {

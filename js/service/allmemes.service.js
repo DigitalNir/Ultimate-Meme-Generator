@@ -1,4 +1,5 @@
 const gAllMemes = []
+let gMemeId = 0
 
 // Define the line data for each meme
 const defaultLine = {
@@ -41,7 +42,7 @@ function createMemes() {
   // If no images in storage - generate demo data
   gAllMemes.push(meme1)
 
-  _saveMemesToStorage()
+  //   _saveMemesToStorage()
 }
 
 function getAllMemes() {
@@ -54,17 +55,24 @@ function saveMeme() {
 }
 
 function addMeme() {
-  gAllMemes.push(gMeme)
+  gMemeId++
+  const meme = { gMemeId, ...gMeme }
+  gAllMemes.push(meme)
 }
 
-function getImgByMeme(meme) {
-  return getImgById(meme.selectedImgId)
+function getImgDataURL(meme) {
+  return meme.dataUrl
+  //   return getImgById(meme.selectedImgId)
 }
 
 function removeBook(bookId) {
   const bookIdx = gBooks.findIndex((book) => book.id === bookId)
   gBooks.splice(bookIdx, 1)
   _saveBooksToStorage()
+}
+
+function setMemeDataURL(dataUrl) {
+  gMeme.dataUrl = dataUrl
 }
 
 function _saveMemesToStorage() {

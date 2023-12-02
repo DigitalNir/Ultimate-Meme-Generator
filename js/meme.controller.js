@@ -90,10 +90,6 @@ function drawText(txt, font, size, fillColor, strokeColor, x, y) {
   gCtx.strokeStyle = strokeColor
   gCtx.font = `${size}px ${font}`
   console.log('gCtx.font from drawText:', gCtx.font)
-  // gCtx.textAlign = 'left' // Align text to the left
-  // gCtx.textBaseline = 'middle'
-  // gCtx.textAlign = 'left' // Align text to the left
-  // gCtx.textBaseline = 'middle'
 
   // Measure the text width
   const textWidth = gCtx.measureText(txt).width
@@ -217,7 +213,6 @@ function onChangeFont(ev) {
   if (selectedLine) {
     selectedLine.font = newFont
 
-    // gCtx.font = `${selectedLine.size}px ${selectedLine.font}`
     gCtx.font = `${selectedLine.size}px ${selectedLine.font}`
     console.log('applying selected font', gCtx.font)
     renderMeme() // Re-render to apply the new font
@@ -294,3 +289,5 @@ function downloadMeme(elLink) {
     restoreCanvasAfterDownload()
   })
 }
+
+function prepareCanvasForSave() {}

@@ -1,16 +1,21 @@
 function onInitAllMemes() {
+  onShowAllMemes()
   renderAllMemes()
 }
 
 function renderAllMemes() {
-  const allMemes = getAllMemes()
   const elAllMemes = document.querySelector('.section-allmemes')
+  elAllMemes.innerHTML = '' // Clear existing memes
+
+  console.log('gAllMemes:', gAllMemes)
+
+  const allMemes = getAllMemes()
   allMemes.forEach((meme) => {
     const elImg = new Image()
-    const image = getImgByMeme(meme)
-    console.log('image:', image)
-    elImg.src = image.imgUrl
-    elImg.dataset.imgId = image.imgId
+    const dataUrl = getImgDataURL(meme)
+    elImg.src = dataUrl
+    // meme.dataset.memeId = idx
+    elImg.setAttribute('data-meme-id', meme.memeId)
     elAllMemes.appendChild(elImg)
   })
 }
@@ -20,6 +25,8 @@ function onMemeSelect(ev) {
 }
 
 function onSaveMeme() {
+  const dataUrl = getCanvasAsDataUrl()
+  setMemeDataURL(dataUrl)
   saveMeme()
   renderAllMemes()
 }

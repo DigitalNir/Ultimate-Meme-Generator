@@ -87,3 +87,7 @@ function downloadCanvas(elLink) {
   // Set a name for the downloaded file
   elLink.download = 'my-img'
 }
+
+function getCanvasAsDataUrl() {
+  return gElCanvas.toDataURL()
+}
