@@ -28,7 +28,8 @@
     gap: 10px;
   }
 
-  .section-gallery {
+  .section-gallery,
+  .section-allmemes {
     grid-template-columns: repeat(2, minmax(100px, 1fr));
   }
 

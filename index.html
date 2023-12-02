@@ -11,9 +11,11 @@
       <img class="img-logo" src="img/logo.png" alt="Memfy logo" />
       <nav class="main-nav">
         <ul class="main-nav-list clean-list flex space-between align-center">
-          <li><a href="#" onclick="onShowGallery()">Gallery</a></li>
-          <li><a href="#" onclick="onInitAllMemes()">Memes</a></li>
-          <li><a href="#">About</a></li>
+          <li>
+            <a href="#" onclick="onShowGallery(); closeMenu()">Gallery</a>
+          </li>
+          <li><a href="#" onclick="onInitAllMemes(); closeMenu()">Memes</a></li>
+          <li><a href="#" onclick="closeMenu()">About</a></li>
         </ul>
       </nav>
       <button class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
