@@ -25,6 +25,9 @@ function setSelectLineOnSwitch() {
   else gMeme.selectedLineIdx = 0
 }
 
+function setCurrentMeme(meme) {
+  gMeme = meme
+}
 function moveLine(mode, canvasHeight) {
   const line = getSelectedLine()
   const lineHeight = line.size // Assuming the height of the line is determined by its font size

@@ -22,6 +22,6 @@
 
 /* General helpers */
 
-.hidden {
+.is-hidden {
   display: none;
 }

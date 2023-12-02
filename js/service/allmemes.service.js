@@ -56,7 +56,7 @@ function saveMeme() {
 
 function addMeme() {
   gMemeId++
-  const meme = { gMemeId, ...gMeme }
+  const meme = { memeId: gMemeId, ...gMeme }
   gAllMemes.push(meme)
 }
 

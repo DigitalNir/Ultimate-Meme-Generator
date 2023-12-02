@@ -21,14 +21,14 @@ function onImgSelect(ev) {
   const imgId = +ev.target.dataset.imgId
   setImg(imgId)
   renderMeme()
-  document.querySelector('.section-editor').classList.remove('hidden')
-  document.querySelector('.section-gallery').classList.add('hidden')
+  document.querySelector('.section-editor').classList.remove('is-hidden')
+  document.querySelector('.section-gallery').classList.add('is-hidden')
 }
 
 function onShowGallery() {
-  document.querySelector('.section-gallery').classList.remove('hidden')
-  document.querySelector('.section-allmemes').classList.add('hidden')
-  document.querySelector('.section-editor').classList.add('hidden')
+  document.querySelector('.section-gallery').classList.remove('is-hidden')
+  document.querySelector('.section-allmemes').classList.add('is-hidden')
+  document.querySelector('.section-editor').classList.add('is-hidden')
 }
 
 function toggleMenu() {

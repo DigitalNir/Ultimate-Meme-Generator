@@ -6,10 +6,7 @@
     <title>Ultimate Meme Generator</title>
     <link rel="stylesheet" href="styles/style.css" />
   </head>
-  <body
-    class="main-layout"
-    onload="onInitMeme(); onInitGallery();onInitAllMemes()"
-  >
+  <body class="main-layout" onload="onInitMeme(); onInitGallery()">
     <header class="main-header flex space-between align-center">
       <img class="img-logo" src="img/logo.png" alt="Memfy logo" />
       <nav class="main-nav">
@@ -23,13 +20,13 @@
     </header>
 
     <section
-      class="section-allmemes hidden"
+      class="section-allmemes is-hidden"
       onclick="onShowAllMemes(event)"
     ></section>
 
     <section class="section-gallery" onclick="onImgSelect(event)"></section>
 
-    <section class="section-editor flex hidden">
+    <section class="section-editor flex is-hidden">
       <div class="editor-meme">
         <canvas width="500" height="500" onclick="onMouseClick(event)">
         </canvas>
