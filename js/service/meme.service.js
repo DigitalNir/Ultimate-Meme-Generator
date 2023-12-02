@@ -1,39 +1,9 @@
 'use strict'
+
+const MEMES_STORAGE_KEY = 'memfyDB_memes'
+
 let gMeme = null
 let gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
-
-// Define the line data for each meme
-const defaultLine = {
-  txt: 'Add Text Here',
-  font: 'Impact-Regular',
-  size: 60,
-  fillColor: 'white',
-  strokeColor: 'black',
-  pos: { x: 0, y: 100 },
-  rect: { x: 50, y: 80, width: 0, height: 0 }, // Updated dynamically
-}
-
-// Repeat for line2 and line3...
-
-// const line2 = {
-//   txt: 'Second meme text',
-//   size: 40,
-//   fillColor: 'blue',
-//   strokeColor: 'purple',
-// }
-// const line3 = {
-//   txt: 'Third meme text',
-//   size: 40,
-//   fillColor: 'green',
-//   strokeColor: 'pink',
-// }
-
-// Create each meme using the _createMeme function
-const meme1 = _createMeme(1, 0, [defaultLine])
-// const meme2 = _createMeme(2, 0, line2)
-// const meme3 = _createMeme(3, 0, line3)
-
-gMeme = meme1
 
 function getMeme() {
   return gMeme

@@ -6,19 +6,29 @@
     <title>Ultimate Meme Generator</title>
     <link rel="stylesheet" href="styles/style.css" />
   </head>
-  <body class="main-layout" onload="onInitMeme(); onInitGallery()">
+  <body
+    class="main-layout"
+    onload="onInitMeme(); onInitGallery();onInitAllMemes()"
+  >
     <header class="main-header flex space-between align-center">
       <img class="img-logo" src="img/logo.png" alt="Memfy logo" />
       <nav class="main-nav">
         <ul class="main-nav-list clean-list flex space-between align-center">
           <li><a href="#" onclick="onShowGallery()">Gallery</a></li>
-          <li><a href="#">Memes</a></li>
+          <li><a href="#" onclick="onShowAllMemes()">Memes</a></li>
           <li><a href="#">About</a></li>
         </ul>
       </nav>
       <button class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
     </header>
+
+    <section
+      class="section-allmemes hidden"
+      onclick="onShowAllMemes(event)"
+    ></section>
+
     <section class="section-gallery" onclick="onImgSelect(event)"></section>
+
     <section class="section-editor flex hidden">
       <div class="editor-meme">
         <canvas width="500" height="500" onclick="onMouseClick(event)">
@@ -177,6 +187,8 @@
           download="file-name"
           >Download</a
         >
+
+        <a href="#" class="button-style" onclick="onSaveMeme()">Save</a>
       </div>
     </section>
     <script
@@ -186,7 +198,10 @@
     <script src="js/service/utils.service.js"></script>
     <script src="js/service/gallery.service.js"></script>
     <script src="js/service/meme.service.js"></script>
+
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
+    <script src="js/service/allmemes.service.js"></script>
+    <script src="js/allmemes.controller.js"></script>
   </body>
 </html>

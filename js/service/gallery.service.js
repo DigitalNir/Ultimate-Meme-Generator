@@ -1,6 +1,6 @@
 'use strict'
 
-const IMGS_STORAGE_KEY = 'memefyDB_imgss'
+const IMGS_STORAGE_KEY = 'memfyDB_imgs'
 const IMG_PATH = 'img/meme-imgs (square)'
 
 let gImgId = 0
