@@ -29,11 +29,11 @@ canvas {
 .btn-delete-meme {
   position: absolute;
   display: inline-block;
-  font-size: 1.2rem;
-  width: 15%;
-  height: 15%;
-  right: 5px;
-  top: 5px;
+  font-size: 1.5rem;
+  width: max-content;
+  right: 10px;
+  top: 10px;
+  padding: 5px;
 }
 
 .btn-delete-meme:hover {

@@ -3,7 +3,7 @@
 .main-layout {
   display: grid;
   grid-template-columns: var(--page-margins) 1fr var(--page-margins);
-  background-color: red;
+  /* background-color: red; */
 }
 
 .main-layout > .full {
@@ -30,7 +30,7 @@
 
 .section-editor {
   justify-content: center;
-  gap: 10px;
+  gap: 100px;
   align-items: center;
 }
 

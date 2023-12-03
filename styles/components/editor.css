@@ -117,3 +117,20 @@
   cursor: pointer;
   border-radius: 10px;
 }
+
+.user-msg {
+  font-size: 2.5rem;
+  position: fixed;
+  bottom: -100px;
+  right: 10px;
+  color: white;
+  background-color: #111;
+  opacity: 0.5;
+  padding: 10px;
+  transition: bottom 0.5s;
+  border-radius: 5px;
+}
+
+.user-msg.open {
+  bottom: 10px;
+}

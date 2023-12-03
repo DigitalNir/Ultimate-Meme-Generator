@@ -283,8 +283,6 @@ function downloadMeme(elLink) {
   })
 }
 
-function prepareCanvasForSave() {}
-
 // Share on Facerbook
 function onUploadImg() {
   // Gets the image from the canvas
@@ -312,4 +310,12 @@ function onShareMeme() {
 
   // Send the image to the server
   doUploadImg(imgDataUrl, onSuccess)
+}
+
+function flashMsg(msg) {
+  const elUserMsg = document.querySelector('.user-msg')
+
+  elUserMsg.innerText = msg
+  elUserMsg.classList.add('open')
+  setTimeout(() => elUserMsg.classList.remove('open'), 3000)
 }

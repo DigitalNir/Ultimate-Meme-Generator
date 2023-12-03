@@ -48,6 +48,7 @@ function onSaveMeme() {
   setMemeDataURL(dataUrl)
   saveMeme()
   renderAllMemes()
+  flashMsg('Meme saved')
 }
 
 function onDeleteMeme(ev) {
