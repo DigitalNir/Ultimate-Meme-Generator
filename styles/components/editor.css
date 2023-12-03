@@ -1,7 +1,6 @@
 .meme-text {
   width: 100%;
   padding: 10px 15px;
-  margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -125,7 +124,7 @@
   right: 10px;
   color: white;
   background-color: #111;
-  opacity: 0.5;
+  opacity: 0.7;
   padding: 10px;
   transition: bottom 0.5s;
   border-radius: 5px;
