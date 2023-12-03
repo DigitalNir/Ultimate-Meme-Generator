@@ -17,6 +17,10 @@
   text-decoration: none;
   padding: 10px;
   transition: color 0.3s ease;
+  margin-inline-end: 75px;
+}
+.main-nav-list li:last-child a {
+  margin-right: 30px;
 }
 
 .main-nav-list li a:hover {
