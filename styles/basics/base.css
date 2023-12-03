@@ -5,6 +5,7 @@
 html {
   font-family: Impact-Regular, sans-serif;
   /* color: var(--clrPrimaryBase); */
+  background-color: var(--clrBgColor);
 }
 
 body {

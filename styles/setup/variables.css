@@ -5,9 +5,10 @@
   --clrLinkHover: #ffd700;
   --clrPrimaryBase: #626262;
   --clrPrimary-1: #000;
+  --clrBgColor: #fefefe;
 
   /* layout  */
-  --page-margins: 200px;
+  --page-margins: 20px;
   --card-layout-margin: 80px;
   --card-layout-margin-center: 60px;
 
